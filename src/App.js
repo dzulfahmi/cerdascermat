@@ -6,25 +6,14 @@ import './App.css';
 import Timer from './pages/Timer';
 import Home from './pages/Home';
 import Point from './pages/Point';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <Router>
       <div>
-        
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/timer/">Timer</Link>
-            </li>
-            <li>
-              <Link to="/point/">Point</Link>
-            </li>
-          </ul>
-        </nav>
+
+        <Navbar/>
 
         <Route path="/" exact component={Home} />
         <Route path="/timer/" component={Timer} />
