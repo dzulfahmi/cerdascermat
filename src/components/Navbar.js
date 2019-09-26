@@ -43,6 +43,9 @@ class NavbarMain extends React.Component {
               <NavItem>
                 <NavLink href="/timer/">Timer</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="/ptimer/">PTimer</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

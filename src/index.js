@@ -1,14 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter } from 'react-router-dom';
+import { configure } from 'mobx';
+import { Provider } from 'mobx-react';
+
 import './index.css';
 import App from './App';
-import TimerMain from './pages/Timer';
+
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import pointStore from './stores/pointStore2';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+const stores = {
+  pointStore  
+}
+
+window._____APP_STATE_____ = stores;
+
+// useStrict(true);
+configure ({
+  enforceActions: 'observed'
+})
+
+ReactDOM.render((
+  <Provider {...stores}>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </Provider>
+), document.getElementById('root'));
+
 serviceWorker.unregister();

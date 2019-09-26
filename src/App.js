@@ -7,6 +7,7 @@ import Timer from './pages/Timer';
 import Home from './pages/Home';
 import Point from './pages/Point';
 import Navbar from './components/Navbar';
+import PTimer from './pages/PTimer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/timer/" component={Timer} />
         <Route path="/point/" component={Point} />
+        <Route path="/ptimer/" component={PTimer} />
       </div>
     </Router>
   );

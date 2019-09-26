@@ -1,38 +1,10 @@
 import React from "react";
 
+import Timer from '../components/Timer';
+import TimerInput from '../components/TimerInput';
+import StartButton from '../components/StartButton';
+
 import "../styles/styles.css";
-
-class TimerInput extends React.Component {
-  render() {
-    return (
-      <div style={{marginLeft:100}}>
-        <h3>Input waktu</h3>
-        <input type="number" value={this.props.value} onChange={this.props.handleChange} required />
-      </div>
-    );
-  }
-}
-
-class Timer extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1 style={{ fontSize: 100, marginLeft:100 }}>{this.props.value}:{this.props.seconds}</h1>
-      </div>
-    );
-  }
-}
-
-class StartButton extends React.Component {
-  render() {
-    return (
-      <div style={{ marginLeft: 130 }}>
-        <button className="btn btn-lg btn-success" disabled={!this.props.value} onClick={this.props.startCountDown}>Start</button>
-      </div>
-
-    );
-  }
-}
 
 class TimerMain extends React.Component {
   constructor(props) {
@@ -96,13 +68,14 @@ class TimerMain extends React.Component {
   }
 
   render() {
+    console.log("isi props timer", this.props)
     const clicked = this.state.isClicked;
     if(clicked){
     return (
       <div>
         <div className="row">
-          <div className="col-md-4"></div>
-          <div className="col-md-4">
+          <div className="col-md-4 col-lg-4"></div>
+          <div className="col-md-4 col-lg-4">
             <Timer value={this.state.value} seconds={this.state.seconds} />
           </div>
         </div>
@@ -112,8 +85,8 @@ class TimerMain extends React.Component {
       return (
         <div>
           <div className="row">
-            <div className="col-md-4"></div>
-            <div className="col-md-4">
+            <div className="col-md-4 col-lg-4"></div>
+            <div className="col-md-4 col-lg-4">
               <TimerInput value={this.state.value} handleChange={this.handleChange} />
               <Timer value={this.state.value} seconds={this.state.seconds} />
               <StartButton startCountDown={this.startCountDown} value={this.state.value} />
